@@ -1,110 +1,88 @@
-# MakeHuman
-
-This is the main source code for the MakeHuman application as such. See "Getting started" below for instructions on how to get MakeHuman up and running. Mac users
-_should_ be able to use the same instructions as windows users, although this has not been thoroughly tested.
-
-## Current status
-
-At the point of writing this, the source code is almost ready for a stable release. 
-
-## Support requests
-
-If you have any questions about the software and its usage, please make a request in our forum: http://www.makehumancommunity.org/forum.
-
-A quick look through at least the top questions in the FAQ might be a good idea too: http://www.makehumancommunity.org/wiki/FAQ:Index
-
-Please do not use the issue tracker for general tech support. For such questions, please use the forums.
-
-## Testing and reporting bugs
-
-The testing vision for this code is to build a community release that includes main application and often-used, user-contributed 
-plug-ins. We hope that the utility of this integrated functionality is sufficient to entice a larger cohort of testers who get
-value-added in exchange for the possibility of uncovering deficiencies in our application.
-
-If you find a bug, please report it in the issues section here on github. In order to make a good bug report, please also include
-the logs: http://www.makehumancommunity.org/wiki/FAQ:How\_to\_provide\_a\_makehuman\_log\_for\_a\_good\_bug\_report%3F
-
-## Getting started
-
-Builds for Windows platforms can be downloaded from http://www.makehumancommunity.org/content/downloads.html
-
-If you rather run the code from source:
-
-* Install python 3.6.x or later from https://www.python.org/ (or via your system's package management). On windows you **MUST** use 64-bit python. 32-bit python will not work.
-* Install python dependencies (see the [Installing python dependencies](#installing-python-dependencies) section below)
-* Install [git](https://git-scm.com/) with [LFS support](https://git-lfs.github.com/). Modern git clients have LFS support included per default. 
-* Make sure the command "git" is available via the PATH variable.
-* Use git to clone https://github.com/makehumancommunity/makehuman.git (or download the source as a zip)
-* Run the "download\_assets\_git.py" script in the "makehuman" subdirectory of the source code.
-* Optionally also run:
-  * compile\_models.py
-  * compile\_proxies.py
-  * compile\_targets.py
- 
-### Installing python dependencies
-MakeHuman depends on the following Python packages:
-
-* numpy
-* PyQt5
-* PyOpenGL
-
-Additionaly MakeHuman's shell plugin can make use of [IPython / Jupyter](https://jupyter.org/). You might also want to install these packages:
-
-* jupyterlab
-* qtconsole
-
-#### Installing python core dependencies on Linux
-It is recommended to install the aforementioned packages via the package manager of the operating system.
-
-* __Debian / Ubuntu / Mint:__
-  
-  `apt install python3-opengl python3-pyqt5 python3-pyqt5.qtopengl python3-pyqt5.qtsvg`
-
-* __openSUSE:__
-
-  `zypper install python3-numpy python3-qt5 python3-opengl`
-
-An alternative way to install dependencies is using __pip__. However, it is best practice to set up an [virtual environment](https://docs.python.org/3/library/venv.html)
-and activate it before using Python's package manager on a Linux system.
-For convenience, you might want to run:
-
-  `pip install -r requirements.txt`
-
-#### Installing python core dependencies on Windows
-You should be able to start the command "pip" by opening a console prompt ("run" -> "cmd.exe") and writing "pip". If not, 
-figure out how to run [__pip__](https://pip.pypa.io/en/stable/) (it should have been installed by python automatically):
-
-Use __pip__ to install dependencies. Running the following command will install all python dependencies:
-
-`pip install -r requirements.txt`
-
-### Installing plugins
-
-If you want to use community plugins like the asset downloader - download them, put in the plugins directory, enable in settings and restart app:
-
-* https://github.com/makehumancommunity/community-plugins-mhapi
-* https://github.com/makehumancommunity/community-plugins-assetdownload
-* https://github.com/makehumancommunity/community-plugins-socket
-* https://github.com/makehumancommunity/makehuman-plugin-for-blender
-
-### Starting MakeHuman
-
-Having done this, you can now start MakeHuman by running the makehuman.py script. On a prompt run 
-
-* python makehuman.py (on Windows)
-* python3 makehuman.py (on Debian, Ubuntu, Mint...)
-
-Alternatively there is a shell script named _makehuman_ to start the application on Linux systems. 
-
-## Branches
-
-There are three standard branches and some additional developer working branches:
-
-* master: This is where you will find the latest version of MakeHuman.
-
-Read-only reference branches
-
-* bitbucket-stable: This is the code as it looks in the "stable" branch at bitbucket. This is the ancestor of what is now the "master" branch.
-* bitbucket-default: This is the code as it looks in the "default" branch at bitbucket.
-
-In addition you may from time to time see feature branches (usually named \_feature...), which are removed after having been merged to the master branch. 
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">造人</font></font></h1><a id="user-content-makehuman" class="anchor" aria-label="永久链接：MakeHuman" href="#makehuman"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这是 MakeHuman 应用程序的主要源代码。有关如何启动和运行 MakeHuman 的说明，请参阅下面的“入门”。 Mac 用户
+</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">应该</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">能够使用与 Windows 用户相同的指令，尽管这尚未经过彻底测试。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当前状态</font></font></h2><a id="user-content-current-status" class="anchor" aria-label="永久链接：当前状态" href="#current-status"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在撰写本文时，源代码几乎已准备好进行稳定发布。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持请求</font></font></h2><a id="user-content-support-requests" class="anchor" aria-label="永久链接：支持请求" href="#support-requests"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您对该软件及其使用有任何疑问，请在我们的论坛中提出请求：</font></font><a href="http://www.makehumancommunity.org/forum" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://www.makehumancommunity.org/forum</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">至少快速浏览一下常见问题解答中的首要问题也可能是个好主意：</font></font><a href="http://www.makehumancommunity.org/wiki/FAQ:Index" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://www.make humancommunity.org/wiki/FAQ:Index</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请不要使用问题跟踪器来获取一般技术支持。对于此类问题，请使用论坛。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">测试和报告错误</font></font></h2><a id="user-content-testing-and-reporting-bugs" class="anchor" aria-label="永久链接：测试和报告错误" href="#testing-and-reporting-bugs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此代码的测试愿景是构建一个社区版本，其中包括主应用程序和常用的用户贡献的插件。我们希望这种集成功能的实用性足以吸引更多的测试人员，他们可以通过发现我们应用程序中的缺陷的可能性来获得增值。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您发现错误，请在 github 上的问题部分报告。为了做出好的错误报告，还请包括日志：</font></font><a href="http://www.makehumancommunity.org/wiki/FAQ:How%5C_to%5C_provide%5C_a%5C_makehuman%5C_log%5C_for%5C_a%5C_good%5C_bug%5C_report%3F" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://www.make humancommunity.org/wiki/FAQ:How\_to\_provide\_a\_makehuman\_log\_for\_a\_good\_bug\_report </font><font style="vertical-align: inherit;">%3F</font></font></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门</font></font></h2><a id="user-content-getting-started" class="anchor" aria-label="永久链接：开始使用" href="#getting-started"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Windows 平台的构建版本可以从</font></font><a href="http://www.makehumancommunity.org/content/downloads.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://www.make humancommunity.org/content/downloads.html下载</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您更愿意从源代码运行代码：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"></font><a href="https://www.python.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从https://www.python.org/</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（或通过系统的包管理）</font><font style="vertical-align: inherit;">安装 python 3.6.x 或更高版本。</font><font style="vertical-align: inherit;">在 Windows 上，您</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">必须</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 64 位 python。 32位Python将无法工作。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装 python 依赖项（请参阅下面的</font></font><a href="#installing-python-dependencies"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装 python 依赖项</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">部分）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装</font><font style="vertical-align: inherit;">带有</font><a href="https://git-lfs.github.com/"><font style="vertical-align: inherit;">LFS 支持的</font></a></font><a href="https://git-scm.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">git</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。现代 git 客户端默认包含 LFS 支持。</font></font><a href="https://git-lfs.github.com/"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">确保命令“git”可通过 PATH 变量使用。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 git 克隆</font></font><a href="https://github.com/makehumancommunity/makehuman.git"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/make humancommunity/</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> make human.git （或下载 zip 源代码）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运行源代码的“makehuman”子目录中的“download_assets_git.py”脚本。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">还可以选择运行：
+</font></font><ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编译模型.py</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编译代理.py</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编译目标.py</font></font></li>
+</ul>
+</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装 python 依赖项</font></font></h3><a id="user-content-installing-python-dependencies" class="anchor" aria-label="永久链接：安装 python 依赖项" href="#installing-python-dependencies"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MakeHuman 依赖于以下 Python 包：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">麻木</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PyQt5</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PyOpenGL</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">另外 MakeHuman 的 shell 插件可以使用</font></font><a href="https://jupyter.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IPython / Jupyter</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。您可能还想安装这些软件包：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">朱皮特拉实验室</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">qt控制台</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h4 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 Linux 上安装 python 核心依赖项</font></font></h4><a id="user-content-installing-python-core-dependencies-on-linux" class="anchor" aria-label="永久链接：在 Linux 上安装 python 核心依赖项" href="#installing-python-core-dependencies-on-linux"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">建议通过操作系统的包管理器安装上述包。</font></font></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Debian / Ubuntu / 薄荷：</font></font></strong></p>
+<p dir="auto"><code>apt install python3-opengl python3-pyqt5 python3-pyqt5.qtopengl python3-pyqt5.qtsvg</code></p>
+</li>
+<li>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开放SUSE：</font></font></strong></p>
+<p dir="auto"><code>zypper install python3-numpy python3-qt5 python3-opengl</code></p>
+</li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装依赖项的另一种方法是使用</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pip</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。但是，最佳实践是</font><font style="vertical-align: inherit;">
+在 Linux 系统上使用 Python 的包管理器之前</font><font style="vertical-align: inherit;">设置并激活</font></font><a href="https://docs.python.org/3/library/venv.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">虚拟环境</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。为了方便起见，您可能需要运行：</font></font></p>
+<p dir="auto"><code>pip install -r requirements.txt</code></p>
+<div class="markdown-heading" dir="auto"><h4 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 Windows 上安装 python 核心依赖项</font></font></h4><a id="user-content-installing-python-core-dependencies-on-windows" class="anchor" aria-label="永久链接：在 Windows 上安装 python 核心依赖项" href="#installing-python-core-dependencies-on-windows"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您应该能够通过打开控制台提示符（“run”-&gt;“cmd.exe”）并写入“pip”来启动命令“pip”。如果没有，请弄清楚如何运行</font></font><a href="https://pip.pypa.io/en/stable/" rel="nofollow"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pip</font></font></strong></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（它应该已由 python 自动安装）：</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pip</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装依赖项。运行以下命令将安装所有 python 依赖项：</font></font></p>
+<p dir="auto"><code>pip install -r requirements.txt</code></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装插件</font></font></h3><a id="user-content-installing-plugins" class="anchor" aria-label="永久链接：安装插件" href="#installing-plugins"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您想使用资源下载器等社区插件 - 下载它们，放入插件目录中，在设置中启用并重新启动应用程序：</font></font></p>
+<ul dir="auto">
+<li><a href="https://github.com/makehumancommunity/community-plugins-mhapi"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/make humancommunity/community-plugins-mhapi</font></font></a></li>
+<li><a href="https://github.com/makehumancommunity/community-plugins-assetdownload"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/make humancommunity/community-plugins-assetdownload</font></font></a></li>
+<li><a href="https://github.com/makehumancommunity/community-plugins-socket"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/make humancommunity/community-plugins-socket</font></font></a></li>
+<li><a href="https://github.com/makehumancommunity/makehuman-plugin-for-blender"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/make humancommunity/make human-plugin-for-blender</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">启动 MakeHuman</font></font></h3><a id="user-content-starting-makehuman" class="anchor" aria-label="永久链接：启动 MakeHuman" href="#starting-makehuman"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">完成此操作后，您现在可以通过运行 makehuman.py 脚本来启动 MakeHuman。在提示运行时</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">python make human.py（在 Windows 上）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">python3 makehuman.py（在 Debian、Ubuntu、Mint...）</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">另外，还有一个名为</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">makehuman</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的 shell 脚本可以在 Linux 系统上启动应用程序。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">分支机构</font></font></h2><a id="user-content-branches" class="anchor" aria-label="永久链接： 分支机构" href="#branches"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有三个标准分支和一些额外的开发人员工作分支：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">master：在这里你可以找到最新版本的MakeHuman。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">只读参考分支</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">bitbucket-stable：这是在 bitbucket 的“稳定”分支中看到的代码。这是现在“master”分支的祖先。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">bitbucket-default：这是在 bitbucket 的“default”分支中查看的代码。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此外，您可能会不时看到功能分支（通常名为 _feature...），这些分支在合并到主分支后被删除。</font></font></p>
+</article></div>
